@@ -3,26 +3,32 @@ require 'rails_helper'
 RSpec.describe TestRunParser, type: :model do
   let(:simple_pending_create) do
     {
-      id: "1",
-      status: "pending",
+      data: {
+        id: "1",
+        status: "pending",
+      },
       action: "create",
-      created_at: "2018-02-08T19:50:20Z",
+      created_at: "2018-02-08T19:50:20Z"
     }
   end
 
   let(:simple_pending_update) do
     {
-      id: "2",
-      status: "pending",
+      data: {
+        id: "2",
+        status: "pending",
+      },
       action: "update",
-      created_at: "2018-02-08T19:50:30Z",
+      created_at: "2018-02-08T19:50:30Z"
     }
   end
 
   let(:simple_creating) do
     {
-      id: "3",
-      status: "creating",
+      data: {
+        id: "3",
+        status: "creating",
+      },
       action: "update",
       created_at: "2018-02-08T19:50:45Z",
     }
@@ -30,30 +36,38 @@ RSpec.describe TestRunParser, type: :model do
 
   let(:simple_building) do
     {
-      id: "4",
-      status: "building",
+      data: {
+        id: "4",
+        status: "building",
+        action: "update",
+      },
       action: "update",
-      created_at: "2018-02-08T19:51:05Z",
+      created_at: "2018-02-08T19:51:05Z"
     }
   end
 
   let(:simple_running) do
     {
-      id: "5",
-      status: "running",
+      data: {
+        id: "5",
+        status: "running",
+      },
       action: "update",
-      created_at: "2018-02-08T19:51:31Z",
+      created_at: "2018-02-08T19:51:31Z"
     }
   end
 
   let(:simple_succeeded) do
     {
-      id: "6",
-      status: "succeeded",
+      data: {
+        id: "6",
+        status: "succeeded",
+      },
       action: "update",
-      created_at: "2018-02-08T19:52:00Z",
+      created_at: "2018-02-08T19:52:00Z"
     }
   end
+
   let(:simplified_data) do
     [
       simple_pending_create,

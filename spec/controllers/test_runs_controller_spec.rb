@@ -368,10 +368,10 @@ RSpec.describe TestRunsController, type: :controller do
     it 'returns test results from a json batch' do
       post :create, params: { test_data: data }
       expect(JSON.parse(response.body)).to eq({
-        pending: '3 seconds',
-        create:  '7 seconds',
-        things:  '10 seconds',
-        stuff:   '5 seconds'
+        'Pending' => '3 seconds',
+        'Creating' =>  '7 seconds',
+        'Building' =>  '10 seconds',
+        'Running' =>   '2 seconds'
       })
     end
   end

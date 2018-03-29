@@ -41,14 +41,23 @@ class TestRunParser
     calculate_duration(running_start_time, succeeded_start_time)
   end
 
+  def report
+    {
+      'Pending'  => "#{pending_duration} seconds",
+      'Creating' => "#{creating_duration} seconds",
+      'Building' => "#{building_duration} seconds",
+      'Running'  => "#{running_duration} seconds",
+    }
+  end
+
   private
 
   def initial_state?(state_update)
-    state_update['status'] == 'pending' && state_update['action'] == 'create'
+    state_update['data']['status'] == 'pending' && state_update['action'] == 'create'
   end
 
   def find_state_update_timestamp(state_update)
-    test_run_data.detect { |test_run| test_run['status'] == state_update }['created_at']
+    test_run_data.detect { |test_run| test_run['data']['status'] == state_update }['created_at']
   end
 
   def calculate_duration(beginning, ending)
