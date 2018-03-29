@@ -2,7 +2,7 @@ class TestRunParser
   attr_reader :test_run_data
 
   def initialize(test_run_data)
-    @test_run_data = JSON.parse(test_run_data)
+    @test_run_data = test_run_data
   end
 
   def pending_start_time

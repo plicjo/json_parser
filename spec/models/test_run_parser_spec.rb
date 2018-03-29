@@ -76,7 +76,7 @@ RSpec.describe TestRunParser, type: :model do
       simple_building,
       simple_running,
       simple_succeeded
-    ].to_json
+    ].map(&:with_indifferent_access)
   end
 
   describe '#pending_start_time' do

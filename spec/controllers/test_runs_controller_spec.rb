@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe TestRunsController, type: :controller do
   describe 'POST create' do
-    let(:data) do
-      JSON.generate([
+    let(:json_data) do
+      [
         {
           "id": "a4a0b9f7-37ec-4bbe-9ef3-1c06267ecdcf",
           "data": {
@@ -363,15 +363,16 @@ RSpec.describe TestRunsController, type: :controller do
               "id": "a53dadf0-7827-4300-a488-42b23b872b41"
             }
           }
-        }])
+        }
+      ]
     end
     it 'returns test results from a json batch' do
-      post :create, params: { test_data: data }
+      post :create, params: { '_json' => json_data }
       expect(JSON.parse(response.body)).to eq({
-        'Pending' => '3 seconds',
+        'Pending'  => '3 seconds',
         'Creating' =>  '7 seconds',
         'Building' =>  '10 seconds',
-        'Running' =>   '2 seconds'
+        'Running'  =>   '2 seconds'
       })
     end
   end
