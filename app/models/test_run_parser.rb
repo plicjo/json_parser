@@ -9,28 +9,24 @@ class TestRunParser
     test_run_data.detect { |state_update| first_state_update?(state_update) }['created_at']
   end
 
-  def pending_end_time
-    test_run_data.detect { |state_update| pending_update?(state_update) }['created_at']
+  def creating_start_time
+    find_state_update_timestamp('creating')
   end
 
-  def creating_start_time
-    test_run_data.detect do |state_update|
-      state_update['status'] == 'creating'
-    end['created_at']
+  def building_start_time
+    find_state_update_timestamp('building')
   end
 
   private
 
   def first_state_update?(state_update)
-    pending?(state_update) && state_update['action'] == 'create'
+    state_update['status'] == 'pending' && state_update['action'] == 'create'
   end
 
-  def pending_update?(state_update)
-    pending?(state_update) && state_update['action'] == 'update'
-  end
-
-  def pending?(state_update)
-    state_update['status'] == 'pending'
+  def find_state_update_timestamp(state_update)
+    test_run_data.detect do |test_run|
+      test_run['status'] == state_update
+    end['created_at']
   end
 end
 
