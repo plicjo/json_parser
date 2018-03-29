@@ -13,6 +13,12 @@ class TestRunParser
     test_run_data.detect { |state_update| pending_update?(state_update) }['created_at']
   end
 
+  def creating_start_time
+    test_run_data.detect do |state_update|
+      state_update['status'] == 'creating'
+    end['created_at']
+  end
+
   private
 
   def first_state_update?(state_update)
@@ -28,11 +34,7 @@ class TestRunParser
   end
 end
 
-# Pending start time - where status "pending" and action "create
-# Pending end time   - where status "creating"
 # Creating start time - where status "creating"
-# Creating end time -   where status "building"
 # Building start time - where status "building"
-# Building end time -   where status "running"
 # Running start time - where status "running"
 # Running end time -   where status "succeeded"

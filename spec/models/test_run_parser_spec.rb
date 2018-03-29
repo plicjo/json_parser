@@ -78,4 +78,11 @@ RSpec.describe TestRunParser, type: :model do
       expect(pending_end_time).to eq(simple_pending_update[:created_at])
     end
   end
+
+  describe '#creating_start_time' do
+    it 'returns the timestamp when state changed to creating' do
+      creating_start_time = described_class.new(simplified_data).creating_start_time
+      expect(creating_start_time).to eq(simple_creating[:created_at])
+    end
+  end
 end
