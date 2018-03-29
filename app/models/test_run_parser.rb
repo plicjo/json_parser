@@ -6,7 +6,7 @@ class TestRunParser
   end
 
   def pending_start_time
-    test_run_data.detect { |state_update| first_state_update?(state_update) }['created_at']
+    test_run_data.detect { |state_update| initial_state?(state_update) }['created_at']
   end
 
   def creating_start_time
@@ -21,9 +21,13 @@ class TestRunParser
     find_state_update_timestamp('running')
   end
 
+  def succeeded_start_time
+    find_state_update_timestamp('succeeded')
+  end
+
   private
 
-  def first_state_update?(state_update)
+  def initial_state?(state_update)
     state_update['status'] == 'pending' && state_update['action'] == 'create'
   end
 

@@ -92,4 +92,11 @@ RSpec.describe TestRunParser, type: :model do
       expect(running_start_time).to eq(simple_running[:created_at])
     end
   end
+
+  describe '#succeeded_start_time' do
+    it 'returns the timestamp when state changed to succeeded' do
+      succeeded_start_time = described_class.new(simplified_data).succeeded_start_time
+      expect(succeeded_start_time).to eq(simple_succeeded[:created_at])
+    end
+  end
 end
