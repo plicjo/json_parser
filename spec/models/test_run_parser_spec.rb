@@ -85,4 +85,11 @@ RSpec.describe TestRunParser, type: :model do
       expect(building_start_time).to eq(simple_building[:created_at])
     end
   end
+
+  describe '#running_start_time' do
+    it 'returns the timestamp when state changed to running' do
+      running_start_time = described_class.new(simplified_data).running_start_time
+      expect(running_start_time).to eq(simple_running[:created_at])
+    end
+  end
 end

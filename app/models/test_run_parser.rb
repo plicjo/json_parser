@@ -17,6 +17,10 @@ class TestRunParser
     find_state_update_timestamp('building')
   end
 
+  def running_start_time
+    find_state_update_timestamp('running')
+  end
+
   private
 
   def first_state_update?(state_update)
@@ -30,7 +34,5 @@ class TestRunParser
   end
 end
 
-# Creating start time - where status "creating"
-# Building start time - where status "building"
 # Running start time - where status "running"
-# Running end time -   where status "succeeded"
+# Succeeded end time -   where status "succeeded"
