@@ -123,4 +123,12 @@ RSpec.describe TestRunParser, type: :model do
       expect(actual_duration).to eq(expected_duration)
     end
   end
+
+  describe '#running_duration' do
+    it 'returns the difference in seconds between running start and succeeded start' do
+      expected_duration = 29
+      actual_duration = described_class.new(simplified_data).running_duration
+      expect(actual_duration).to eq(expected_duration)
+    end
+  end
 end
