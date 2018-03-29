@@ -99,4 +99,12 @@ RSpec.describe TestRunParser, type: :model do
       expect(succeeded_start_time).to eq(simple_succeeded[:created_at])
     end
   end
+
+  describe '#pending_duration' do
+    it 'returns the difference in seconds between pending start and creating start' do
+      expected_duration = 25
+      actual_duration = described_class.new(simplified_data).pending_duration
+      expect(actual_duration).to eq(expected_duration)
+    end
+  end
 end

@@ -25,6 +25,11 @@ class TestRunParser
     find_state_update_timestamp('succeeded')
   end
 
+  def pending_duration
+    seconds_difference = DateTime.parse(pending_start_time).to_i - DateTime.parse(creating_start_time).to_i
+    seconds_difference.abs
+  end
+
   private
 
   def initial_state?(state_update)
