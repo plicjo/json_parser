@@ -8,6 +8,7 @@ gem 'puma', '~> 3.7'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
