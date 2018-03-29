@@ -1,0 +1,378 @@
+require 'rails_helper'
+
+RSpec.describe TestRunsController, type: :controller do
+  describe 'POST create' do
+    let(:data) do
+      JSON.generate([
+        {
+          "id": "a4a0b9f7-37ec-4bbe-9ef3-1c06267ecdcf",
+          "data": {
+            "id": "dd61763b-a9ad-401d-9bd4-9e5d74888dbb",
+            "dyno": nil,
+            "user": {
+              "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+              "email": "jsnow@stark.house"
+            },
+            "debug": false,
+            "number": 275,
+            "status": "pending",
+            "message": nil,
+            "pipeline": {
+              "id": "f3c0f370-078a-4fa6-b997-2193e28c5008",
+              "name": "winter-is-coming"
+            },
+            "app_setup": nil,
+            "commit_sha": "2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "created_at": "2018-02-08T19:54:30Z",
+            "updated_at": "2018-02-08T19:54:30Z",
+            "actor_email": "jsnow@stark.house",
+            "clear_cache": false,
+            "organization": {
+              "name": "house-stark"
+            },
+            "commit_branch": "king-in-the-north",
+            "commit_message": "send a raven",
+            "source_blob_url": "https://codeload.github.com/house_stark/winter-is-coming/legacy.tar.gz/2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "warning_message": nil
+          },
+          "actor": {
+            "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+            "email": "jsnow@stark.house"
+          },
+          "action": "create",
+          "version": "application/vnd.heroku+json; version=3.ci",
+          "resource": "test-run",
+          "created_at": "2018-02-08T19:54:30Z",
+          "published_at": "2018-02-08T19:54:30Z",
+          "previous_data": {},
+          "webhook_metadata": {
+            "event": {
+              "id": "a4a0b9f7-37ec-4bbe-9ef3-1c06267ecdcf",
+              "include": "api:test-run"
+            },
+            "attempt": {
+              "id": "38a7b61d-14b2-414f-b8e8-0060549b32ae"
+            },
+            "webhook": {
+              "id": "4d022540-5d71-419b-8c9c-d254c89fad19"
+            },
+            "delivery": {
+              "id": "594bf377-2cc5-45d5-9b11-b5fe5d347191"
+            }
+          }
+        },
+        {
+          "id": "a4956d1f-1fc5-4a76-a3f9-8e64f63ee852",
+          "data": {
+            "id": "dd61763b-a9ad-401d-9bd4-9e5d74888dbb",
+            "dyno": {
+              "size": "performance-m"
+            },
+            "user": {
+              "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+              "email": "jsnow@stark.house"
+            },
+            "debug": false,
+            "number": 275,
+            "status": "pending",
+            "message": nil,
+            "pipeline": {
+              "id": "f3c0f370-078a-4fa6-b997-2193e28c5008",
+              "name": "winter-is-coming"
+            },
+            "app_setup": nil,
+            "commit_sha": "2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "created_at": "2018-02-08T19:54:30Z",
+            "updated_at": "2018-02-08T19:54:31Z",
+            "actor_email": "jsnow@stark.house",
+            "clear_cache": false,
+            "organization": {
+              "name": "house-stark"
+            },
+            "commit_branch": "king-in-the-north",
+            "commit_message": "send a raven",
+            "source_blob_url": "https://codeload.github.com/house_stark/winter-is-coming/legacy.tar.gz/2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "warning_message": nil
+          },
+          "actor": {
+            "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+            "email": "jsnow@stark.house"
+          },
+          "action": "update",
+          "version": "application/vnd.heroku+json; version=3.ci",
+          "resource": "test-run",
+          "created_at": "2018-02-08T19:54:31Z",
+          "published_at": "2018-02-08T19:54:31Z",
+          "previous_data": {},
+          "webhook_metadata": {
+            "event": {
+              "id": "a4956d1f-1fc5-4a76-a3f9-8e64f63ee852",
+              "include": "api:test-run"
+            },
+            "attempt": {
+              "id": "afa1a7fc-1802-4155-a77b-8a9220ed7d85"
+            },
+            "webhook": {
+              "id": "4d022540-5d71-419b-8c9c-d254c89fad19"
+            },
+            "delivery": {
+              "id": "21ea9849-564f-420f-a0ff-00170f6ae4a6"
+            }
+          }
+        },
+        {
+          "id": "4e2ca3af-aa00-49ad-940f-85238add464d",
+          "data": {
+            "id": "dd61763b-a9ad-401d-9bd4-9e5d74888dbb",
+            "dyno": {
+              "size": "performance-m"
+            },
+            "user": {
+              "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+              "email": "jsnow@stark.house"
+            },
+            "debug": false,
+            "number": 275,
+            "status": "creating",
+            "message": nil,
+            "pipeline": {
+              "id": "f3c0f370-078a-4fa6-b997-2193e28c5008",
+              "name": "winter-is-coming"
+            },
+            "app_setup": {
+              "id": "6a886d06-ec24-4a8c-8ec0-db43a61237f1"
+            },
+            "commit_sha": "2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "created_at": "2018-02-08T19:54:30Z",
+            "updated_at": "2018-02-08T19:54:33Z",
+            "actor_email": "jsnow@stark.house",
+            "clear_cache": false,
+            "organization": {
+              "name": "house-stark"
+            },
+            "commit_branch": "king-in-the-north",
+            "commit_message": "send a raven",
+            "source_blob_url": "https://codeload.github.com/house_stark/winter-is-coming/legacy.tar.gz/2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "warning_message": nil
+          },
+          "actor": {
+            "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+            "email": "jsnow@stark.house"
+          },
+          "action": "update",
+          "version": "application/vnd.heroku+json; version=3.ci",
+          "resource": "test-run",
+          "created_at": "2018-02-08T19:54:33Z",
+          "published_at": "2018-02-08T19:54:33Z",
+          "previous_data": {},
+          "webhook_metadata": {
+            "event": {
+              "id": "4e2ca3af-aa00-49ad-940f-85238add464d",
+              "include": "api:test-run"
+            },
+            "attempt": {
+              "id": "0be26b91-7333-45e2-9889-95605da770a1"
+            },
+            "webhook": {
+              "id": "4d022540-5d71-419b-8c9c-d254c89fad19"
+            },
+            "delivery": {
+              "id": "8181fd58-d1a8-4463-a5e4-e94948df1763"
+            }
+          }
+        },
+        {
+          "id": "2ad542ed-88fa-440e-b422-83dac7053736",
+          "data": {
+            "id": "dd61763b-a9ad-401d-9bd4-9e5d74888dbb",
+            "dyno": {
+              "size": "performance-m"
+            },
+            "user": {
+              "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+              "email": "jsnow@stark.house"
+            },
+            "debug": false,
+            "number": 275,
+            "status": "building",
+            "message": nil,
+            "pipeline": {
+              "id": "f3c0f370-078a-4fa6-b997-2193e28c5008",
+              "name": "winter-is-coming"
+            },
+            "app_setup": {
+              "id": "6a886d06-ec24-4a8c-8ec0-db43a61237f1"
+            },
+            "commit_sha": "2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "created_at": "2018-02-08T19:54:30Z",
+            "updated_at": "2018-02-08T19:54:40Z",
+            "actor_email": "jsnow@stark.house",
+            "clear_cache": false,
+            "organization": {
+              "name": "house-stark"
+            },
+            "commit_branch": "king-in-the-north",
+            "commit_message": "send a raven",
+            "source_blob_url": "https://codeload.github.com/house_stark/winter-is-coming/legacy.tar.gz/2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "warning_message": nil
+          },
+          "actor": {
+            "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+            "email": "jsnow@stark.house"
+          },
+          "action": "update",
+          "version": "application/vnd.heroku+json; version=3.ci",
+          "resource": "test-run",
+          "created_at": "2018-02-08T19:54:40Z",
+          "published_at": "2018-02-08T19:54:40Z",
+          "previous_data": {},
+          "webhook_metadata": {
+            "event": {
+              "id": "2ad542ed-88fa-440e-b422-83dac7053736",
+              "include": "api:test-run"
+            },
+            "attempt": {
+              "id": "c450f031-3ece-4648-964c-fcf90f368f75"
+            },
+            "webhook": {
+              "id": "4d022540-5d71-419b-8c9c-d254c89fad19"
+            },
+            "delivery": {
+              "id": "ecd358b9-90ea-4cba-852e-529e79dec049"
+            }
+          }
+        },
+        {
+          "id": "cb2a2712-1387-4609-a730-74c07b5d0858",
+          "data": {
+            "id": "dd61763b-a9ad-401d-9bd4-9e5d74888dbb",
+            "dyno": {
+              "size": "performance-m"
+            },
+            "user": {
+              "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+              "email": "jsnow@stark.house"
+            },
+            "debug": false,
+            "number": 275,
+            "status": "running",
+            "message": nil,
+            "pipeline": {
+              "id": "f3c0f370-078a-4fa6-b997-2193e28c5008",
+              "name": "winter-is-coming"
+            },
+            "app_setup": {
+              "id": "6a886d06-ec24-4a8c-8ec0-db43a61237f1"
+            },
+            "commit_sha":"2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "created_at": "2018-02-08T19:54:30Z",
+            "updated_at": "2018-02-08T19:54:50Z",
+            "actor_email": "jsnow@stark.house",
+            "clear_cache": false,
+            "organization": {
+              "name": "house-stark"
+            },
+            "commit_branch": "king-in-the-north",
+            "commit_message": "send a raven",
+            "source_blob_url": "https://codeload.github.com/house_stark/winter-is-coming/legacy.tar.gz/2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "warning_message": nil
+          },
+          "actor": {
+            "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+            "email": "jsnow@stark.house"
+          },
+          "action": "update",
+          "version": "application/vnd.heroku+json; version=3.ci",
+          "resource": "test-run",
+          "created_at": "2018-02-08T19:54:50Z",
+          "published_at": "2018-02-08T19:54:50Z",
+          "previous_data": {},
+          "webhook_metadata": {
+            "event": {
+              "id": "cb2a2712-1387-4609-a730-74c07b5d0858",
+              "include": "api:test-run"
+            },
+            "attempt": {
+              "id": "05f9b00d-e704-4203-abea-749e177bf514"
+            },
+            "webhook": {
+              "id": "4d022540-5d71-419b-8c9c-d254c89fad19"
+            },
+            "delivery": {
+              "id": "7a7259d6-aeb1-4eda-873d-c78aaf81af13"
+            }
+          }
+        },
+        {
+          "id": "9031b055-1be6-4c42-a32c-a5156937b3cc",
+          "data": {
+            "id": "dd61763b-a9ad-401d-9bd4-9e5d74888dbb",
+            "dyno": {
+              "size": "performance-m"
+            },
+            "user": {
+              "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+              "email": "jsnow@stark.house"
+            },
+            "debug": false,
+            "number": 275,
+            "status": "succeeded",
+            "message": nil,
+            "pipeline": {
+              "id": "f3c0f370-078a-4fa6-b997-2193e28c5008",
+              "name": "winter-is-coming"
+            },
+            "app_setup": {
+              "id": "6a886d06-ec24-4a8c-8ec0-db43a61237f1"
+            },
+            "commit_sha": "2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "created_at": "2018-02-08T19:54:30Z",
+            "updated_at": "2018-02-08T19:54:52Z",
+            "actor_email": "jsnow@stark.house",
+            "clear_cache": false,
+            "organization": {
+              "name": "house-stark"
+            },
+            "commit_branch": "king-in-the-north",
+            "commit_message": "send a raven",
+            "source_blob_url": "https://codeload.github.com/house_stark/winter-is-coming/legacy.tar.gz/2834fb68521eb05fcd6847739fd2b5ecc9c27d6d",
+            "warning_message": nil
+          },
+          "actor": {
+            "id": "15a9f4ca-daf2-4d7f-b9e3-6a5bb9164150",
+            "email": "jsnow@stark.house"
+          },
+          "action": "update",
+          "version": "application/vnd.heroku+json; version=3.ci",
+          "resource": "test-run",
+          "created_at": "2018-02-08T19:54:52Z",
+          "published_at": "2018-02-08T19:54:52Z",
+          "previous_data": {},
+          "webhook_metadata": {
+            "event": {
+              "id": "9031b055-1be6-4c42-a32c-a5156937b3cc",
+              "include": "api:test-run"
+            },
+            "attempt": {
+              "id": "5e20308d-17aa-4f0b-81b9-3eef8a4e79f3"
+            },
+            "webhook": {
+              "id": "4d022540-5d71-419b-8c9c-d254c89fad19"
+            },
+            "delivery": {
+              "id": "a53dadf0-7827-4300-a488-42b23b872b41"
+            }
+          }
+        }])
+    end
+    it 'returns test results from a json batch' do
+      post :create, params: { test_data: data }
+      expect(JSON.parse(response.body)).to eq({
+        pending: '3 seconds',
+        create:  '7 seconds',
+        things:  '10 seconds',
+        stuff:   '5 seconds'
+      })
+    end
+  end
+end
