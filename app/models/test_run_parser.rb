@@ -26,8 +26,11 @@ class TestRunParser
   end
 
   def pending_duration
-    seconds_difference = DateTime.parse(pending_start_time).to_i - DateTime.parse(creating_start_time).to_i
-    seconds_difference.abs
+    calculate_duration(pending_start_time, creating_start_time)
+  end
+
+  def creating_duration
+    calculate_duration(creating_start_time, building_start_time)
   end
 
   private
@@ -37,11 +40,10 @@ class TestRunParser
   end
 
   def find_state_update_timestamp(state_update)
-    test_run_data.detect do |test_run|
-      test_run['status'] == state_update
-    end['created_at']
+    test_run_data.detect { |test_run| test_run['status'] == state_update }['created_at']
+  end
+
+  def calculate_duration(beginning, ending)
+    (DateTime.parse(beginning).to_i - DateTime.parse(ending).to_i).abs
   end
 end
-
-# Running start time - where status "running"
-# Succeeded end time -   where status "succeeded"
