@@ -33,6 +33,10 @@ class TestRunParser
     calculate_duration(creating_start_time, building_start_time)
   end
 
+  def building_duration
+    calculate_duration(building_start_time, running_start_time)
+  end
+
   private
 
   def initial_state?(state_update)
