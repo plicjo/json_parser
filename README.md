@@ -1,24 +1,15 @@
-# README
+# JSON Test Run Parser
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running the tests
+```
+bundle install
+bundle exec rspec
+```
 
-Things you may want to cover:
+## Testing JSON response with Curl
+```
+rails server
+curl -H "Content-Type: application/json" --data @spec/fixtures/test_run_payload.json http://localhost:3000/test_runs
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Cheers :D
